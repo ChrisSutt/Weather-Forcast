@@ -1,0 +1,17 @@
+#search-history {
+    margin-top: 20px;
+  }
+  
+  #history-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .weather-card {
+    margin-bottom: 20px;
+  }
+  
+  .weather-card img {
+    width: 100px;
+    height: auto;
+  }
