@@ -48,10 +48,35 @@ $('#searchForm').submit(function(event) {
   localStorage.setItem('searchHistory', JSON.stringify(historyArray));
 
 
-
+  displaySearchHistory();
 
 
   fetchWeather(city);
 });
 
 
+function displaySearchHistory() {
+  var searchHistory = localStorage.getItem('searchHistory') || '[]';
+  var historyArray = JSON.parse(searchHistory);
+  var historyHTML = '';
+
+  for (let i = 0; i < historyArray.length; i++) {
+    historyHTML += `<li>${historyArray[i]}</li>`;
+  }
+
+  $('#searchHistory').html(historyHTML);
+
+  
+  $('#searchHistory li').click(function() {
+    var city = $(this).text();
+    $('#cityInput').val(city);
+    fetchWeather(city);
+  });
+}
+
+
+$(document).ready(function() {
+  displaySearchHistory();
+
+  
+});
