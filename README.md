@@ -5,7 +5,7 @@ Chris - Weather-Forcast-App
 ## Description
 
 I've created a weather app you can use to search any city's 5 day forecast
-https://chrissutt.github.io/Weather-Forcast-App/
+https://chrissutt.github.io/Weather-Forcast/
 
 
 ## ScreenShot
