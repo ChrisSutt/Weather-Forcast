@@ -1,7 +1,7 @@
-
+// API key for OpenWeatherMap
 const apiKey = 'ad9dfdc03ebb6528152c4dee7145e7e0';
 
-
+// Function to fetch weather data
 function fetchWeather(city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
@@ -36,25 +36,25 @@ function fetchWeather(city) {
   });
 }
 
-
+// Function to handle form submission
 $('#searchForm').submit(function(event) {
   event.preventDefault();
   const city = $('#cityInput').val();
 
-
+  // Save search history
   const searchHistory = localStorage.getItem('searchHistory') || '[]';
   const historyArray = JSON.parse(searchHistory);
   historyArray.push(city);
   localStorage.setItem('searchHistory', JSON.stringify(historyArray));
 
-
+  // Display search history
   displaySearchHistory();
 
-
+  // Fetch weather data for the city
   fetchWeather(city);
 });
 
-
+// Function to display search history
 function displaySearchHistory() {
   var searchHistory = localStorage.getItem('searchHistory') || '[]';
   var historyArray = JSON.parse(searchHistory);
@@ -66,7 +66,7 @@ function displaySearchHistory() {
 
   $('#searchHistory').html(historyHTML);
 
-  
+  // Attach event listener to search history items
   $('#searchHistory li').click(function() {
     var city = $(this).text();
     $('#cityInput').val(city);
@@ -74,7 +74,7 @@ function displaySearchHistory() {
   });
 }
 
-
+// Display search history on page load
 $(document).ready(function() {
   displaySearchHistory();
 
